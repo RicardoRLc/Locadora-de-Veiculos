@@ -72,5 +72,49 @@ namespace Models
             return db.Clientes.ToList();
         }
 
+        public static void AtualizaCliente(
+            int IdCliente,
+            string nomeCliente,
+            string dataNascimento,
+            string cpfCliente,
+            int diasDevolucao)
+        {
+            var db = new Context();
+            try
+            {
+                ClienteModels cliente = db.Clientes.First(cliente => cliente.IdCliente == IdCliente);
+                cliente.NomeCliente = nomeCliente;
+                cliente.DataNascimento = dataNascimento;
+                cliente.CpfCliente = cpfCliente;
+                cliente.DiasDevolucao = diasDevolucao;
+                db.SaveChanges();
+            }
+            catch
+            {
+                throw new ArgumentException();
+            }
+        }
+
+        public static void DeletaCliente(int IdCliente)
+        {
+            var db = new Context();
+            try
+            {
+                ClienteModels cliente = db.Clientes.Frist(cliente => cliente.IdCliente == IdCliente);
+                db.Remove(cliente);
+                try
+                {
+                    db.SaveChanges();
+                }
+                catch
+                {
+                    //throw error();
+                }
+            }
+            catch
+            {
+                //throw error}
+            }
+        }
     }
 }
