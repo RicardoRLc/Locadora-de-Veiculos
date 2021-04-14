@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -11,7 +12,7 @@ namespace Models
         public int IdCliente { get; set; }
         // [Required] - Exige que campo seja preenchido.
         public string NomeCliente { get; set; }
-        public string DataNascimento { get; set; }
+        public DateTime DataNascimento { get; set; }
         public string CpfCliente { get; set; }
         public int DiasDevolucao { get; set; }
 
@@ -20,7 +21,7 @@ namespace Models
 
         public ClienteModels(
             string nomeCliente,
-            string dataNascimento,
+            DateTime dataNascimento,
             string cpfCliente,
             int diasDevolucao
             )
@@ -75,7 +76,7 @@ namespace Models
         public static void AtualizaCliente(
             int IdCliente,
             string nomeCliente,
-            string dataNascimento,
+            DateTime dataNascimento,
             string cpfCliente,
             int diasDevolucao)
         {
@@ -100,7 +101,7 @@ namespace Models
             var db = new Context();
             try
             {
-                ClienteModels cliente = db.Clientes.Frist(cliente => cliente.IdCliente == IdCliente);
+                ClienteModels cliente = db.Clientes.First(cliente => cliente.IdCliente == IdCliente);
                 db.Remove(cliente);
                 try
                 {
@@ -108,13 +109,13 @@ namespace Models
                 }
                 catch
                 {
-                    //throw error();
+                    //menssagem de erro();
                 }
             }
-            catch
-            {
-                //throw error}
-            }
+                catch
+                {
+                    //uma menssagem de erro
+                }
         }
     }
 }

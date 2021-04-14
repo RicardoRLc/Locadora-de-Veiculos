@@ -1,32 +1,26 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ricardo.costa\\Desktop\\Locadora-de-Veiculos\\Veiculo.csproj": {}
+    "C:\\Users\\ricardo.costa\\Desktop\\Locadora-de-Veiculos\\Locadora-de-Veiculos\\Veiculo.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ricardo.costa\\Desktop\\Locadora-de-Veiculos\\Veiculo.csproj": {
+    "C:\\Users\\ricardo.costa\\Desktop\\Locadora-de-Veiculos\\Locadora-de-Veiculos\\Veiculo.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ricardo.costa\\Desktop\\Locadora-de-Veiculos\\Veiculo.csproj",
+        "projectUniqueName": "C:\\Users\\ricardo.costa\\Desktop\\Locadora-de-Veiculos\\Locadora-de-Veiculos\\Veiculo.csproj",
         "projectName": "Veiculo",
-        "projectPath": "C:\\Users\\ricardo.costa\\Desktop\\Locadora-de-Veiculos\\Veiculo.csproj",
+        "projectPath": "C:\\Users\\ricardo.costa\\Desktop\\Locadora-de-Veiculos\\Locadora-de-Veiculos\\Veiculo.csproj",
         "packagesPath": "C:\\Users\\ricardo.costa\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ricardo.costa\\Desktop\\Locadora-de-Veiculos\\obj\\",
+        "outputPath": "C:\\Users\\ricardo.costa\\Desktop\\Locadora-de-Veiculos\\Locadora-de-Veiculos\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\ricardo.costa\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\ricardo.costa\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {},
-          "https://nexus-repository.becomex.com.br/repository/nuget/": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp3.1": {
@@ -42,9 +36,23 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.2, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.2, )"
+            },
             "Pomelo.EntityFrameworkCore.MySql": {
               "target": "Package",
-              "version": "[3.2.4, )"
+              "version": "[3.1.1, )"
+            },
+            "Pomelo.EntityFrameworkCore.MySql.Design": {
+              "target": "Package",
+              "version": "[1.1.2, )"
             }
           },
           "imports": [
@@ -58,14 +66,11 @@
           "assetTargetFallback": true,
           "warn": true,
           "frameworkReferences": {
-            "Microsoft.AspNetCore.App": {
-              "privateAssets": "none"
-            },
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.407\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -22,7 +22,7 @@ namespace Veiculo
                 Console.WriteLine("\n6 - Cadastro Veículo");
                 Console.WriteLine("\n7 - Consultar Veículo");
                 Console.WriteLine("\n8 - Listar os Veículos");
-                Console.WriteLine("\n9- Cadastrar Locação");
+                Console.WriteLine("\n9-  Cadastrar Locação");
                 Console.WriteLine("\n10 - Consultar Locação");
                 Console.WriteLine("\n11 - Listar as Locações");
                 Console.WriteLine("\n0 - Sair");
@@ -31,7 +31,7 @@ namespace Veiculo
                 try
                 {
                     opt = Convert.ToInt32(Console.ReadLine());
-                    opt = 11;
+                    // opt = 1;
                 }
                 catch
                 {
@@ -53,7 +53,7 @@ namespace Veiculo
                         ClienteView.AtualizaCliente();
                         break;        
                     case 5:
-                        ClienteView.DeletaClientes();
+                        ClienteView.DeletaCliente();
                         break;
                     case 6:
                         VeiculoView.CadastrarVeiculo();
