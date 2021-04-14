@@ -8,7 +8,9 @@ namespace Veiculo
     {
         public static void Main(string[] args)
         {
-
+            Application.Run(new CriarForm());
+        }    
+         public static void Terminal(){       
             Console.WriteLine("-----Locação do Veiculo LTDA -------");
             int opt = 0;
             do

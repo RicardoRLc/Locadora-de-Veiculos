@@ -1,10 +1,11 @@
-<Project Sdk="Microsoft.NET.Sdk"> 
+<Project Sdk="Microsoft.NET.WindowsDesktop"> 
 
  <!-- <Project Sdk="Microsoft.NET.Sdk"> -->
 <PropertyGroup>
   <TargetFramework>netcoreapp3.1</TargetFramework>
   <LangVersion>preview</LangVersion>
   <OutputType>Exe</OutputType>
+  <UseWindowsForms>true</UseWindowsForms>
 </PropertyGroup>
 <ItemGroup>
   <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.2" />
