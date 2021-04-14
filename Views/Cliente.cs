@@ -54,7 +54,29 @@ namespace View
             {
                 Console.WriteLine("==> CLIENTE NÃO EXISTE!");
             }
+            
         }
+             public static void AtualizaCliente()
+        {
+           Console.WriteLine("=================[ Atualizando CLIENTE ]=================");
+            ClienteController.GetClientes().ForEach(cliente => Console.WriteLine(cliente));
+            Console.WriteLine("Digite o ID do Cliente: ");
+            int idCliente = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("=================[ CLIENTE ATUALIZADO ]=================");
+
+        }
+
+             public static void DeletaCliente()
+        {
+           Console.WriteLine("=================[ DELETANDO CLIENTE ]=================");
+            
+            Console.WriteLine("Digite o ID do Cliente: ");
+            string idCliente = Console.ReadLine();
+            ClienteController.DeletaCliente(idCliente);
+            Console.WriteLine("=================[ CLIENTE DELETADO ]=================");
+
+        }
+
     }
 
 }
