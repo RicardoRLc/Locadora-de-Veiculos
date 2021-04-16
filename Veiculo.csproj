@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.WindowsDesktop"> 
+<Project Sdk="Microsoft.NET.SDK.WindowsDesktop"> 
 
  <!-- <Project Sdk="Microsoft.NET.Sdk"> -->
 <PropertyGroup>
