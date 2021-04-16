@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ricardo.costa\\Desktop\\Locadora-de-Veiculos\\Locadora-de-Veiculos\\Veiculo.csproj": {}
+    "C:\\Users\\ricardo.costa\\Desktop\\LocadoraForms\\Veiculo.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ricardo.costa\\Desktop\\Locadora-de-Veiculos\\Locadora-de-Veiculos\\Veiculo.csproj": {
+    "C:\\Users\\ricardo.costa\\Desktop\\LocadoraForms\\Veiculo.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ricardo.costa\\Desktop\\Locadora-de-Veiculos\\Locadora-de-Veiculos\\Veiculo.csproj",
+        "projectUniqueName": "C:\\Users\\ricardo.costa\\Desktop\\LocadoraForms\\Veiculo.csproj",
         "projectName": "Veiculo",
-        "projectPath": "C:\\Users\\ricardo.costa\\Desktop\\Locadora-de-Veiculos\\Locadora-de-Veiculos\\Veiculo.csproj",
+        "projectPath": "C:\\Users\\ricardo.costa\\Desktop\\LocadoraForms\\Veiculo.csproj",
         "packagesPath": "C:\\Users\\ricardo.costa\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ricardo.costa\\Desktop\\Locadora-de-Veiculos\\Locadora-de-Veiculos\\obj\\",
+        "outputPath": "C:\\Users\\ricardo.costa\\Desktop\\LocadoraForms\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\ricardo.costa\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -68,6 +68,9 @@
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
+            },
+            "Microsoft.WindowsDesktop.App.WindowsForms": {
+              "privateAssets": "none"
             }
           },
           "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.407\\RuntimeIdentifierGraph.json"
