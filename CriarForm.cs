@@ -35,8 +35,11 @@ namespace View
     {
 
         PropriedadeBotao botaoCadastroCliente;
-        
+        PropriedadeBotao botaoListarCliente;
 
+        PropriedadeBotao botaoCadastroVeiculo;
+
+        PropriedadeBotao ListarVeiculo;
         public CriarForm()
         {
 
@@ -47,54 +50,29 @@ namespace View
             // Criando o botão para acessar p formulario.
 
             this.botaoCadastroCliente = new PropriedadeBotao(new Point(400, 200),new Size(150, 70),"CADASTRO DO CLIENTE");
-            
-            this.Controls.Add(botaoCadastroCliente);
             this.botaoCadastroCliente.Click += new EventHandler(this.botaoCadastroClienteClick);
-            Button botao1 = new Button();
-            Button botao2 = new Button();
-            Button botao3 = new Button();
+           
+            this.botaoListarCliente = new PropriedadeBotao(new Point(200, 200),new Size(100, 70),"LISTA DOS CLIENTES");
+            this.botaoListarCliente.Click += new EventHandler(this.botaoListarClienteClick);
 
-            // Seta a mensagem que o botao mostra.
-            botao1.Text = "Cadastrar Cliente";
-            // Seta o Click 
-            // botao1.Click += new EventHandler(this.botao1);
-            botao2.Text = "Cadastrar Veículo";
+            this.botaoCadastroVeiculo = new PropriedadeBotao(new Point(300, 200),new Size(200, 70),"CADASTRO DE VEÍCULO");
+            this.botaoCadastroVeiculo.Click += new EventHandler(this.botaoCadastroVeiculoClick);          
 
-            botao3.Text = "Listar Veículo";
+            this.botaoListarVeiculo = new PropriedadeBotao(new Point(300, 200),new Size(200, 70),"LISTA DOS VEÍCULOS");
+            this.botaoListarVeiculo.Click += new EventHandler(this.botaoListarVeiculoClick);          
 
+ 
 
-            // Irá setar onde o botão ficara.
-
-            botao1.Location = new Point(10, 20);
-            botao2.Location = new Point(50, 220);
-            botao3.Location = new Point(10, 320);
-
-            //Irá setar o tamanho do botão
-
-            botao1.Size = new Size(100, 60);
-            botao2.Size = new Size(100, 90);
-            botao3.Size = new Size(100, 90);
-
-            // // Define o estilo da borda.
-            // this.FormBorderStyle = FormBorderStyle.FixedDialog;
-
-            // // Set the accept button of the form to button1.
-            // this.AcceptButton = botao1;
-            // this.AcceptButton = botao2;
-            // this.AcceptButton = botao3;
-
-            // Set the start position of the form to the center of the screen.
+           // Set the start position of the form to the center of the screen.
             this.StartPosition = FormStartPosition.CenterScreen;
 
             // Adiciona o botao no form.
-            this.Controls.Add(botao1);
-            this.Controls.Add(botao2);
-            this.Controls.Add(botao3);
             this.Controls.Add(botaoCadastroCliente);
-
-
+            this.Controls.Add(botaoListarCliente);
+            this.Controls.Add(botaoCadastroVeiculo);
+            this.Controls.Add(botaoListarVeiculo);    
             // Tipo de form que sera .
-            this.ShowDialog();
+            // this.ShowDialog();
 
         }
         private void botaoCadastroClienteClick(object sender, EventArgs e)
@@ -102,5 +80,22 @@ namespace View
             // CadastroCliente botaoCadastroClienteClick = new CadastroCliente(this);
             // botaoCadastroClienteClick.Show();
         }
+         private void botaoListarClienteClick(object sender, EventArgs e)
+        {
+            // CadastroCliente botaoCadastroClienteClick = new CadastroCliente(this);
+            // botaoCadastroClienteClick.Show();
+        }
+        private void botaoCadastroVeiculoClick(object sender, EventArgs e)
+        {
+            // CadastroCliente botaoCadastroClienteClick = new CadastroCliente(this);
+            // botaoCadastroClienteClick.Show();
+        }
+
+        private void botaoListarVeiculoClick(object sender, EventArgs e)
+        {
+            // CadastroCliente botaoCadastroClienteClick = new CadastroCliente(this);
+            // botaoCadastroClienteClick.Show();
+        }
+        
     }
 }
