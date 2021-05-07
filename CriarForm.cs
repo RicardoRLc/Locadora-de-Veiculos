@@ -77,8 +77,8 @@ namespace View
         }
         private void botaoCadastroClienteClick(object sender, EventArgs e)
         {
-            //  CadastroCliente botaoCadastroClienteClick = new CadastroCliente(this);
-            //  botaoCadastroClienteClick.Show();
+           CadastroCliente tela = new CadastroCliente();
+           tela.Show(); 
         }
          private void botaoListarClienteClick(object sender, EventArgs e)
         {
