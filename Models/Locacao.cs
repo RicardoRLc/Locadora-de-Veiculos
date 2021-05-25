@@ -111,5 +111,13 @@ namespace Models
                     where locacao.IdLocacao == idLocacao
                     select locacao).First();
        }
+
+       public static List<LocacaoModels> GetLocacoesByCliente(int IdCliente)
+        {
+            var db = new Context();
+            return (from locacao in db.Locacoes
+                    where locacao.IdCliente == IdCliente
+                    select locacao).ToList();
+        }
     }
 }
