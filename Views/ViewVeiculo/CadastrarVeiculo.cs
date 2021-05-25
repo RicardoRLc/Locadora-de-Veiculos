@@ -26,16 +26,16 @@ namespace Locadora_Veiculos_Ltda
             try
             {
                 if ((rtxt_Marca.Text != string.Empty)
-                && (mtxt_DataNasc.Text != string.Empty)
-                && (mtxt_CpfCLiente.Text != string.Empty)
-                && (cb_DiasDevol.Text != string.Empty))
+                && (mtxt_AnoFab.Text != string.Empty)
+                && (mtxt_Preco.Text != string.Empty)
+                && (cb_QtdEstoque.Text != string.Empty))
                 {
                     if (cliente == null)
                     {
-                        ClienteController.CadastrarVeiculo(
+                        VeiculosController.CadastrarVeiculo(
                         rtxt_Marca.Text,
-                        mtxt_DataNasc.Text,
-                        mtxt_CpfCLiente.Text,
+                        mtxt_AnoFab.Text,
+                        mtxt_Preco.Text,
                         cb_QtdEstoque.Text == "1 Unidade"
                             ? 1
                             : cb_QtdEstoque.Text == "2 Unidades"
@@ -51,20 +51,19 @@ namespace Locadora_Veiculos_Ltda
                     }
                     else
                     {
-                        ClienteController.AtualizaVeiculo(
-                        cliente.IdCliente,
-                        rtxt_Marca.Text,
-                         mtxt_DataNasc.Text,
-                        mtxt_CpfCLiente.Text,
-                        cb_DiasDevol.Text == "1 Dia"
+                        VeiculosController.AtualizaVeiculo(
+                         rtxt_Marca.Text,
+                        mtxt_AnoFab.Text,
+                        mtxt_Preco.Text,
+                        cb_QtdEstoque.Text == "1 Unidade"
                             ? 1
-                            : cb_DiasDevol.Text == "2 Dias"
+                            : cb_QtdEstoque.Text == "2 Unidades"
                                 ? 2
-                                : cb_DiasDevol.Text == "3 Dias"
+                                : cb_QtdEstoque.Text == "3 Unidades"
                                     ? 3
-                                    : cb_DiasDevol.Text == "4 Dias"
-                                        ? 4
-                                        : 7
+                                    : cb_QtdEstoque.Text == "5 Unidades"
+                                        ? 5
+                                        : 10
                         );
                         MessageBox.Show("Alteração Feita!");
                     }
@@ -89,10 +88,10 @@ namespace Locadora_Veiculos_Ltda
 
         private void LoadForm(object sender, EventArgs e)
         {
-            this.rtxt_Marca.Text = cliente.NomeCliente;
-            this.mtxt_DataNasc.Text = cliente.DataNascimento;
-            this.mtxt_CpfCLiente.Text = cliente.CpfCliente;
-            this.cb_DiasDevol.SelectedValue = cliente.DiasDevolucao;
+            this.rtxt_Marca.Text = Veiculo.Marca;
+            this.mtxt_AnoFab.Text = Veiculo.mtxt_AnoFab;
+            this.mtxt_Preco.Text = Veiculo.CpfCliente;
+            this.cb_QtdEstoque.SelectedValue = Veiculo.DiasDevolucao;
         }
     }
 }

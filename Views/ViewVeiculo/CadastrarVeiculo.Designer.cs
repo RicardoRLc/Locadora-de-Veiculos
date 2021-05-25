@@ -12,7 +12,7 @@ namespace Locadora_Veiculos_Ltda
         Library.Label lbl_Preco;
         Library.RichTextBox rtxt_Marca;        
         Library.MaskedTextBox mtxt_AnoFab;
-        Library.MaskedTextBox mtxt_preco;
+        Library.MaskedTextBox mtxt_Preco;
         ComboBox cb_QtdEstoque;
         Library.Button btn_Confirmar;
         Library.Button btn_Cancelar;
@@ -41,28 +41,23 @@ namespace Locadora_Veiculos_Ltda
             this.Controls.Add(lbl_Modelo);
 
             this.lbl_AnoFab = new Library.Label();
-            this.lbl_AnoFab.Text = "CPF :";
+            this.lbl_AnoFab.Text = "Ano fabrica :";
             this.lbl_AnoFab.Location = new Point(20, 100);
             this.Controls.Add(lbl_AnoFab);
 
-            this.lbl_DiasDevol = new Library.Label();
-            this.lbl_DiasDevol.Text = "Dias P/ Devolução :";
-            this.lbl_DiasDevol.Location = new Point(20, 140);
-            this.Controls.Add(lbl_DiasDevol);
+            this.rtxt_Marca = new Library.RichTextBox();
+            this.rtxt_Marca.Size = new Size(170, 20);
+            this.Controls.Add(rtxt_Marca);
 
-            this.rtxt_NomeCliente = new Library.RichTextBox();
-            this.rtxt_NomeCliente.Size = new Size(170, 20);
-            this.Controls.Add(rtxt_NomeCliente);
+            this.mtxt_AnoFab = new Library.MaskedTextBox();
+            this.mtxt_AnoFab.Mask = "00/00/0000";
+            this.mtxt_AnoFab.Location = new Point(150, 60);
+            this.Controls.Add(mtxt_AnoFab);
 
-            this.mtxt_DataNasc = new Library.MaskedTextBox();
-            this.mtxt_DataNasc.Mask = "00/00/0000";
-            this.mtxt_DataNasc.Location = new Point(150, 60);
-            this.Controls.Add(mtxt_DataNasc);
-
-            this.mtxt_CpfCLiente = new Library.MaskedTextBox();
-            this.mtxt_CpfCLiente.Mask = "000,000,000-00";
-            this.mtxt_CpfCLiente.ReadOnly = isUpdate;
-            this.Controls.Add(mtxt_CpfCLiente);
+            this.mtxt_Preco = new Library.MaskedTextBox();
+            this.mtxt_Preco.Mask = "00,00";
+            this.mtxt_Preco.ReadOnly = isUpdate;
+            this.Controls.Add(mtxt_Preco);
 
             this.cb_QtdEstoque = new ComboBox();
             this.cb_QtdEstoque.Items.Add("1 Unidade");
