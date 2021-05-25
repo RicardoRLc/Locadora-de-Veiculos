@@ -12,7 +12,7 @@ namespace Models
         public int IdCliente { get; set; }
         // [Required] - Exige que campo seja preenchido.
         public string NomeCliente { get; set; }
-        public DateTime DataNascimento { get; set; }
+        public string DataNascimento { get; set; }
         public string CpfCliente { get; set; }
         public int DiasDevolucao { get; set; }
 
@@ -21,7 +21,7 @@ namespace Models
 
         public ClienteModels(
             string nomeCliente,
-            DateTime dataNascimento,
+            string dataNascimento,
             string cpfCliente,
             int diasDevolucao
             )
@@ -76,7 +76,7 @@ namespace Models
         public static void AtualizaCliente(
             int IdCliente,
             string nomeCliente,
-            DateTime dataNascimento,
+            string dataNascimento,
             string cpfCliente,
             int diasDevolucao)
         {
@@ -96,26 +96,19 @@ namespace Models
             }
         }
 
-        public static void DeletaCliente(int IdCliente)
+        public static void DeleteCliente(int idCliente)
         {
-            var db = new Context();
+            Context db = new Context();
             try
             {
-                ClienteModels cliente = db.Clientes.First(cliente => cliente.IdCliente == IdCliente);
+                ClienteModels cliente = db.Clientes.First(cliente => cliente.IdCliente == idCliente);
                 db.Remove(cliente);
-                try
-                {
-                    db.SaveChanges();
-                }
-                catch
-                {
-                    //menssagem de erro();
-                }
+                db.SaveChanges();
             }
-                catch
-                {
-                    //uma menssagem de erro
-                }
+            catch
+            {
+                throw new ArgumentException();
+            }
         }
     }
 }

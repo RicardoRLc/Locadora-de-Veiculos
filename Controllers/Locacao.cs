@@ -1,6 +1,6 @@
 using System;
-using System.Collections.Generic;
 using Models;
+using System.Collections.Generic;
 
 
 namespace Controllers
@@ -21,5 +21,20 @@ namespace Controllers
         {
             return LocacaoModels.GetLocacao();
         }
+
+        public static List<LocacaoModels> GetLocacoesByCliente(int IdCliente)
+        {
+            return LocacaoModels.GetLocacoesByCliente(IdCliente);
+        }
+
+        // public static List<LocacaoVeiculoModels> GetLocacoesByFilme(int IdFilme)
+        // {
+        //     return LocacaoVeiculoModels.GetLocacoesByVeiculo(IdFilme);
+        // }
+
+        // public static void DeleteLocacao(int idLocacao)
+        // {
+        //     LocacaoController.DeleteLocacao(idLocacao);
+        // }
     }
 }

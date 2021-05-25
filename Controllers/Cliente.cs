@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using DbRepository;
 using Models;
 
 namespace Controllers
@@ -20,13 +22,13 @@ namespace Controllers
             }
             catch
             {
-                Console.WriteLine("Formato inválido!");
+                Console.WriteLine("FORMATO INVÁLIDO!");
                 dtNasc = DateTime.Now;
             }
 
             new ClienteModels(
                 nomeCliente,
-                dtNasc,
+                dataNascimento,
                 cpfCliente,
                 diasDevolucao
             );
@@ -35,26 +37,12 @@ namespace Controllers
         public static void AtualizaCliente(
                 int idCliente,
                 string nomeCliente,
-                string sDataNascimento,
+                string dataNascimento,
                 string cpfCliente,
                 int diasDevolucao)
 
         {
-            DateTime dataNascimento;
-
-            try
-            {
-                dataNascimento = Convert.ToDateTime(sDataNascimento);
-            }
-            catch
-            {
-                throw new Exception("Data inválida");
-            }
-            if (nomeCliente.Length == 0)
-            {
-                throw new Exception("Digite um nome válido");
-            }
-
+            
             ClienteModels.AtualizaCliente (
             idCliente, 
             nomeCliente, 
@@ -62,18 +50,30 @@ namespace Controllers
             cpfCliente, 
             diasDevolucao);
         }
-        public static void DeletaCliente(string idCliente) 
-        {
-            ClienteModels.DeletaCliente(Convert.ToInt32(idCliente));
-        }
+
         public  static ClienteModels GetCliente(int idCliente)
         {
             return ClienteModels.GetCliente(idCliente);
         }
+
         public static List<ClienteModels> GetClientes()
         {
             return ClienteModels.GetClientes();
         }
-        
+
+        public static void DeleteCliente(int idCliente)
+        {
+            Context db = new Context();
+            try
+            {
+                ClienteModels cliente = db.Clientes.First(cliente => cliente.IdCliente == idCliente);
+                db.Remove(cliente);
+                db.SaveChanges();
+            }
+            catch
+            {
+                throw new ArgumentException();
+            }
+        } 
     }
 }
