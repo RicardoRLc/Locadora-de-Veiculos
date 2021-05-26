@@ -21,7 +21,7 @@ namespace View
             Library.Button btn_CadastroCliente;
             Library.Button btn_ConsultaCliente;
             Library.Button btn_ListaClientes;
-            Library.Button btn_CadastroFilme;
+            Library.Button btn_CadastraVeiculo;
             Library.Button btn_ConsultaFilme;
             Library.Button btn_ListaFilmes;
             Library.Button btn_CadastroLocacao;
@@ -64,12 +64,12 @@ namespace View
                 this.Controls.Add(btn_ListaClientes);
                 this.btn_ListaClientes.Click += new EventHandler(btn_ListaClientesClick);
 
-                this.btn_CadastroFilme = new Library.Button();
-                this.btn_CadastroFilme.Location = new Point(80, 200);
-                this.btn_CadastroFilme.Size = new Size(200, 30);
-                this.btn_CadastroFilme.Text = "Cadastro Veículo";
-                this.Controls.Add(btn_CadastroFilme);
-                // this.btn_CadastroFilme.Click += new EventHandler(btn_CadastroFilmeClick);
+                this.btn_CadastraVeiculo = new Library.Button();
+                this.btn_CadastraVeiculo.Location = new Point(80, 200);
+                this.btn_CadastraVeiculo.Size = new Size(200, 30);
+                this.btn_CadastraVeiculo.Text = "Cadastro Veículo";
+                this.Controls.Add(btn_CadastraVeiculo);
+                // this.btn_CadastraVeiculo.Click += new EventHandler(btn_CadastraVeiculoClick);
 
                 this.btn_ConsultaFilme = new Library.Button();
                 this.btn_ConsultaFilme.Location = new Point(80, 230);

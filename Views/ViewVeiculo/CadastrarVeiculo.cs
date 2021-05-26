@@ -7,12 +7,12 @@
 // {
 //     public partial class CadastrarVeiculo : Form
 //     {
-//         LocacaoModels cliente;
+//         VeiculoModels veiculos;
 //         public CadastrarVeiculo(Form parent, int id = 0)
 //         {
 //             try
 //             {
-//                 cliente = ClienteController.GetCliente(id);
+//                 veiculos = VeiculosController.GetVeiculo(id);
 //             }
 //             catch
 //             {
@@ -30,7 +30,7 @@
 //                 && (mtxt_Preco.Text != string.Empty)
 //                 && (cb_QtdEstoque.Text != string.Empty))
 //                 {
-//                     if (cliente == null)
+//                     if (veiculos == null)
 //                     {
 //                         VeiculosController.CadastrarVeiculo(
 //                         rtxt_Marca.Text,
