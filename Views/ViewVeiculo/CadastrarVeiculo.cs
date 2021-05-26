@@ -1,97 +1,102 @@
-// using System;
-// using Models;
-// using Controllers;
-// using System.Windows.Forms;
+using System;
+using Models;
+using Controllers;
+using System.Windows.Forms;
 
-// namespace Locadora_Veiculos_Ltda
-// {
-//     public partial class CadastrarVeiculo : Form
-//     {
-//         VeiculoModels veiculos;
-//         public CadastrarVeiculo(Form parent, int id = 0)
-//         {
-//             try
-//             {
-//                 veiculos = VeiculosController.GetVeiculo(id);
-//             }
-//             catch
-//             {
+namespace Locadora_Veiculos_Ltda
+{
+    public partial class CadastroVeiculo : Form
+    {
+        VeiculoModels veiculo;
+        public CadastroVeiculo(Form parent, int id = 0)
+        {
+            try
+            {
+                veiculo = VeiculoController.GetVeiculo(id);
+            }
+            catch
+            {
 
-//             }
-//             InitializeComponent(parent, id > 0);
-//         }
+            }
+            InitializeComponent(parent, id > 0);
+        }
 
-//         private void btn_ConfirmarClick(object sender, EventArgs e)
-//         {
-//             try
-//             {
-//                 if ((rtxt_Marca.Text != string.Empty)
-//                 && (mtxt_AnoFab.Text != string.Empty)
-//                 && (mtxt_Preco.Text != string.Empty)
-//                 && (cb_QtdEstoque.Text != string.Empty))
-//                 {
-//                     if (veiculos == null)
-//                     {
-//                         VeiculosController.CadastrarVeiculo(
-//                         rtxt_Marca.Text,
-//                         mtxt_AnoFab.Text,
-//                         mtxt_Preco.Text,
-//                         cb_QtdEstoque.Text == "1 Unidade"
-//                             ? 1
-//                             : cb_QtdEstoque.Text == "2 Unidades"
-//                                 ? 2
-//                                 : cb_QtdEstoque.Text == "3 Unidades"
-//                                     ? 3
-//                                     : cb_QtdEstoque.Text == "5 Unidades"
-//                                         ? 5
-//                                         : 10
-//                         );
-//                         MessageBox.Show("Cadastrado Com Sucesso!");
+        private void btn_ConfirmarClick(object sender, EventArgs e)
+        {
+            try
+            {
+                if ((rtxt_Marca.Text != string.Empty)
+                && (rtxt_Modelo.Text != string.Empty)
+                && (mtxt_AnoFab.Text != string.Empty)
+                && (cb_ValorLocacaoVeiculo.Text != string.Empty)
+                && (num_EstoqueVeiculo.Value != 0))
+                {
+                    if (veiculo == null)
+                    {
+                        VeiculoController.CadastrarVeiculo(
+                        rtxt_Marca.Text,
+                        rtxt_Modelo.Text,
+                        mtxt_AnoFab.Text,
+                        cb_ValorLocacaoVeiculo.Text == "R$ 50,00"
+                            ? 50.00
+                            : cb_ValorLocacaoVeiculo.Text == "R$ 100,00"
+                                ? 100.00
+                                : cb_ValorLocacaoVeiculo.Text == "R$ 150,00"
+                                    ? 150.00
+                                    : cb_ValorLocacaoVeiculo.Text == "R$ 200,00"
+                                        ? 200.00
+                                        : 250.00,
+                                        (int)num_EstoqueVeiculo.Value
+                        );
+                        MessageBox.Show("Cadastrado Com Sucesso!");
 
-//                     }
-//                     else
-//                     {
-//                         VeiculosController.AtualizaVeiculo(
-//                          rtxt_Marca.Text,
-//                         mtxt_AnoFab.Text,
-//                         mtxt_Preco.Text,
-//                         cb_QtdEstoque.Text == "1 Unidade"
-//                             ? 1
-//                             : cb_QtdEstoque.Text == "2 Unidades"
-//                                 ? 2
-//                                 : cb_QtdEstoque.Text == "3 Unidades"
-//                                     ? 3
-//                                     : cb_QtdEstoque.Text == "5 Unidades"
-//                                         ? 5
-//                                         : 10
-//                         );
-//                         MessageBox.Show("Alteração Feita!");
-//                     }
-//                     this.Close();
-//                     this.parent.Show();
-//                 }
-//                 else
-//                 {
-//                     MessageBox.Show("Preencha Todos Os Campos!");
-//                 }
-//             }
-//             catch (Exception er)
-//             {
-//                 MessageBox.Show(er.Message, "Preencha Todos Os Campos!");
-//             }
-//         }
+                    }
+                    else
+                    {
+                        VeiculoController.UpdateVeiculo(
+                        veiculo.IdVeiculo,
+                        rtxt_Marca.Text,
+                        rtxt_Modelo.Text,
+                        mtxt_AnoFab.Text,
+                        cb_ValorLocacaoVeiculo.Text == "R$ 50,00"
+                            ? 50.00
+                            : cb_ValorLocacaoVeiculo.Text == "R$ 100,00"
+                                ? 100.00
+                                : cb_ValorLocacaoVeiculo.Text == "R$ 150,00"
+                                    ? 150.00
+                                    : cb_ValorLocacaoVeiculo.Text == "R$ 200,00"
+                                        ? 200.00
+                                        : 250.00,
+                                        (int)num_EstoqueVeiculo.Value
+                        );
+                        MessageBox.Show("Alteração Feita!");
+                    }
+                    this.Close();
+                    this.parent.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Preencha Todos Os Campos!");
+                }
+            }
+            catch (Exception er)
+            {
+                MessageBox.Show(er.Message, "Preencha Todos Os Campos!");
+            }
+        }
 
-//         private void btn_CancelarClick(object sender, EventArgs e)
-//         {
-//             this.Close();
-//         }
+        private void btn_CancelarClick(object sender, EventArgs e)
+        {
+            this.Close();
+        }
 
-//         private void LoadForm(object sender, EventArgs e)
-//         {
-//             this.rtxt_Marca.Text = Veiculo.Marca;
-//             this.mtxt_AnoFab.Text = Veiculo.mtxt_AnoFab;
-//             this.mtxt_Preco.Text = Veiculo.CpfCliente;
-//             this.cb_QtdEstoque.SelectedValue = Veiculo.DiasDevolucao;
-//         }
-//     }
-// }
+        private void LoadForm(object sender, EventArgs e)
+        {
+            this.rtxt_Marca.Text = veiculo.Marca;
+            this.rtxt_Modelo.Text = veiculo.Modelo;
+            this.mtxt_AnoFab.Text = veiculo.Ano;
+            this.cb_ValorLocacaoVeiculo.SelectedValue = veiculo.ValorLocacaoVeiculo;
+            this.num_EstoqueVeiculo.Value = veiculo.EstoqueVeiculo;
+        }
+    }
+}

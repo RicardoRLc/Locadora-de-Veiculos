@@ -22,7 +22,7 @@ namespace Locadora_Veiculos_Ltda
             this.parent = parent;
             
             this.lv_ListaClientes = new Library.ListView();
-            this.lv_ListaClientes.Location = new Point(0, 20);
+            this.lv_ListaClientes.Location = new Point(20, 20);
             this.lv_ListaClientes.Size = new Size(440, 250);
             ListViewItem clientes = new ListViewItem();
             List<ClienteModels> clientesLista = ClienteController.GetClientes();

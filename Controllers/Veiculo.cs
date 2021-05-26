@@ -9,7 +9,7 @@ namespace Controllers
         public static void CadastrarVeiculo(
             string marca,
             string modelo,
-            int ano,
+            string ano,
             double valorLocacaoVeiculo,
             int estoqueVeiculo
         )
@@ -17,7 +17,7 @@ namespace Controllers
            new VeiculoModels(
               marca,
               modelo,
-              Convert.ToInt32(ano),
+              ano,
               Convert.ToDouble(valorLocacaoVeiculo),
               estoqueVeiculo
           );
@@ -28,5 +28,38 @@ namespace Controllers
         {
             return VeiculoModels.GetVeiculos();
         } 
+
+        public static VeiculoModels GetVeiculo(int idVeiculo) {
+            return VeiculoModels.GetVeiculo(idVeiculo); 
+        }
+
+        public static void UpdateVeiculo(
+            int idVeiculo,
+            string marca,
+            string modelo,
+            string ano,
+            double valorLocacaoVeiculo,
+            int estoqueVeiculo
+        )
+        {
+            VeiculoModels.UpdateVeiculo(
+             idVeiculo,   
+             marca,
+             modelo,
+             ano,
+             valorLocacaoVeiculo,
+             estoqueVeiculo
+            );            
+        }
+
+        // public static void DeleteVeiculo(int idVeiculo)
+
+        // {
+        //     if (LocacaoController.GetLocacoesByVeiculo(idVeiculo).Count > 0)
+        //     {
+        //         throw new Exception("Há Locações com essa Marca!");
+        //     }
+        //     VeiculoModels.DeleteVeiculo(idVeiculo);
+        // }
     }        
 }

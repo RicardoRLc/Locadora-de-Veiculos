@@ -21,7 +21,7 @@ namespace View
             Library.Button btn_CadastroCliente;
             Library.Button btn_ConsultaCliente;
             Library.Button btn_ListaClientes;
-            Library.Button btn_CadastraVeiculo;
+            Library.Button btn_CadastroVeiculo;
             Library.Button btn_ConsultaFilme;
             Library.Button btn_ListaFilmes;
             Library.Button btn_CadastroLocacao;
@@ -64,12 +64,12 @@ namespace View
                 this.Controls.Add(btn_ListaClientes);
                 this.btn_ListaClientes.Click += new EventHandler(btn_ListaClientesClick);
 
-                this.btn_CadastraVeiculo = new Library.Button();
-                this.btn_CadastraVeiculo.Location = new Point(80, 200);
-                this.btn_CadastraVeiculo.Size = new Size(200, 30);
-                this.btn_CadastraVeiculo.Text = "Cadastro Veículo";
-                this.Controls.Add(btn_CadastraVeiculo);
-                // this.btn_CadastraVeiculo.Click += new EventHandler(btn_CadastraVeiculoClick);
+                this.btn_CadastroVeiculo = new Library.Button();
+                this.btn_CadastroVeiculo.Location = new Point(80, 200);
+                this.btn_CadastroVeiculo.Size = new Size(200, 30);
+                this.btn_CadastroVeiculo.Text = "Cadastro Veículo";
+                this.Controls.Add(btn_CadastroVeiculo);
+                this.btn_CadastroVeiculo.Click += new EventHandler(btn_CadastroVeiculoClick);
 
                 this.btn_ConsultaFilme = new Library.Button();
                 this.btn_ConsultaFilme.Location = new Point(80, 230);
@@ -130,10 +130,10 @@ namespace View
                 listaClienteClick.Show();
             }
             
-            private void btn_CadastroFilmeClick(object sender, EventArgs e)
+            private void btn_CadastroVeiculoClick(object sender, EventArgs e)
             {
-                // CadastroFilme cadastrarFilmeClick = new CadastroFilme(this);
-                // cadastrarFilmeClick.Show();
+                CadastroVeiculo cadastrarVeiculoClick = new CadastroVeiculo(this);
+                cadastrarVeiculoClick.Show();
             }
             
             private void btn_ConsultaFilmeClick(object sender, EventArgs e)
