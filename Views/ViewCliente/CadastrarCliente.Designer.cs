@@ -75,7 +75,7 @@ namespace Locadora_Veiculos_Ltda
             this.cb_DiasDevol.Size = new Size(170, 20);
             this.Controls.Add(cb_DiasDevol);
 
-            // Buttons
+           
             this.btn_Confirmar = new Library.Button();
             this.btn_Confirmar.Text = "CONFIRMAR";
             this.btn_Confirmar.Location = new Point(10, 190);

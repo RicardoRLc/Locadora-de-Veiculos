@@ -34,8 +34,7 @@ namespace Library
             }              
         }
         
-        // Mouse event to change color of button
-        // Event Enter
+        
         private void btn_SairDetalheEnter(object sender, EventArgs e)
         {
             this.BackColor = Color.Aquamarine;
@@ -44,7 +43,7 @@ namespace Library
         {
             this.BackColor = Color.DarkGray;
         }
-        // Event Leave
+       
         private void btn_UpdateDetalheEnter(object sender, EventArgs e)
         {
             this.BackColor = Color.Aquamarine;
