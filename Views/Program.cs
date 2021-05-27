@@ -6,7 +6,6 @@ namespace View
 {
     static class Program
     {
-
         [STAThread]
         static void Main()
         {
@@ -16,14 +15,14 @@ namespace View
             Application.Run(new TelaInicial());
         }
         public class TelaInicial : Form
-        {            
+        {
             Library.PictureBox pb_Menu;
             Library.Button btn_CadastroCliente;
             Library.Button btn_ConsultaCliente;
             Library.Button btn_ListaClientes;
             Library.Button btn_CadastroVeiculo;
-            Library.Button btn_ConsultaFilme;
-            Library.Button btn_ListaFilmes;
+            Library.Button btn_ConsultaVeiculo;
+            Library.Button btn_ListaVeiculos;
             Library.Button btn_CadastroLocacao;
             Library.Button btn_ConsultaLocacao;
             Library.Button btn_ListaLocacoes;
@@ -50,7 +49,7 @@ namespace View
                 this.Controls.Add(btn_CadastroCliente);
                 this.btn_CadastroCliente.Click += new EventHandler(btn_CadastroClienteClick);
 
-                 this.btn_ConsultaCliente = new Library.Button();
+                this.btn_ConsultaCliente = new Library.Button();
                 this.btn_ConsultaCliente.Location = new Point(80, 120);
                 this.btn_ConsultaCliente.Size = new Size(200, 30);
                 this.btn_ConsultaCliente.Text = "Consulta Cliente";
@@ -71,40 +70,40 @@ namespace View
                 this.Controls.Add(btn_CadastroVeiculo);
                 this.btn_CadastroVeiculo.Click += new EventHandler(btn_CadastroVeiculoClick);
 
-                this.btn_ConsultaFilme = new Library.Button();
-                this.btn_ConsultaFilme.Location = new Point(80, 230);
-                this.btn_ConsultaFilme.Size = new Size(200, 30);
-                this.btn_ConsultaFilme.Text = "Consulta Veículo";
-                this.Controls.Add(btn_ConsultaFilme);
-                // this.btn_ConsultaFilme.Click += new EventHandler(btn_ConsultaFilmeClick);
+                this.btn_ConsultaVeiculo = new Library.Button();
+                this.btn_ConsultaVeiculo.Location = new Point(80, 230);
+                this.btn_ConsultaVeiculo.Size = new Size(200, 30);
+                this.btn_ConsultaVeiculo.Text = "Consulta Veículo";
+                this.Controls.Add(btn_ConsultaVeiculo);
+                this.btn_ConsultaVeiculo.Click += new EventHandler(btn_ConsultaVeiculoClick);
 
-                this.btn_ListaFilmes = new Library.Button();
-                this.btn_ListaFilmes.Location = new Point(80, 260);
-                this.btn_ListaFilmes.Size = new Size(200, 30);
-                this.btn_ListaFilmes.Text = "Lista Veículos";
-                this.Controls.Add(btn_ListaFilmes);
-                // this.btn_ListaFilmes.Click += new EventHandler(btn_ListaFilmesClick);
+                this.btn_ListaVeiculos = new Library.Button();
+                this.btn_ListaVeiculos.Location = new Point(80, 260);
+                this.btn_ListaVeiculos.Size = new Size(200, 30);
+                this.btn_ListaVeiculos.Text = "Lista Veículos";
+                this.Controls.Add(btn_ListaVeiculos);
+                this.btn_ListaVeiculos.Click += new EventHandler(btn_ListaVeiculosClick);
 
                 this.btn_CadastroLocacao = new Library.Button();
                 this.btn_CadastroLocacao.Location = new Point(80, 310);
                 this.btn_CadastroLocacao.Size = new Size(200, 30);
                 this.btn_CadastroLocacao.Text = "Cadastro Locação";
                 this.Controls.Add(btn_CadastroLocacao);
-                // this.btn_CadastroLocacao.Click += new EventHandler(btn_CadastroLocacaoClick);
-                
+                this.btn_CadastroLocacao.Click += new EventHandler(btn_CadastroLocacaoClick);
+
                 this.btn_ConsultaLocacao = new Library.Button();
                 this.btn_ConsultaLocacao.Location = new Point(80, 340);
                 this.btn_ConsultaLocacao.Size = new Size(200, 30);
                 this.btn_ConsultaLocacao.Text = "Consulta Locação";
                 this.Controls.Add(btn_ConsultaLocacao);
-                // this.btn_ConsultaLocacao.Click += new EventHandler(btn_ConsultaLocacaoClick);
+                this.btn_ConsultaLocacao.Click += new EventHandler(btn_ConsultaLocacaoClick);
 
                 this.btn_ListaLocacoes = new Library.Button();
                 this.btn_ListaLocacoes.Location = new Point(80, 370);
                 this.btn_ListaLocacoes.Size = new Size(200, 30);
                 this.btn_ListaLocacoes.Text = "Lista Locações";
                 this.Controls.Add(btn_ListaLocacoes);
-                // this.btn_ListaLocacoes.Click += new EventHandler(btn_ListaLocacoesClick);
+                this.btn_ListaLocacoes.Click += new EventHandler(btn_ListaLocacoesClick);
 
                 this.btn_MenuSair = new Library.Button();
                 this.btn_MenuSair.Location = new Point(100, 420);
@@ -112,7 +111,7 @@ namespace View
                 this.Controls.Add(btn_MenuSair);
                 this.btn_MenuSair.Click += new EventHandler(btn_MenuSairClick);
             }
-            
+
             private void btn_CadastroClienteClick(object sender, EventArgs e)
             {
                 CadastroCliente cadastrarClienteClick = new CadastroCliente(this);
@@ -123,49 +122,49 @@ namespace View
                 ConsultaCliente consultaClienteClick = new ConsultaCliente(this);
                 consultaClienteClick.Show();
             }
-            
+
             private void btn_ListaClientesClick(object sender, EventArgs e)
             {
                 ListaCliente listaClienteClick = new ListaCliente(this);
                 listaClienteClick.Show();
             }
-            
+
             private void btn_CadastroVeiculoClick(object sender, EventArgs e)
             {
                 CadastroVeiculo cadastrarVeiculoClick = new CadastroVeiculo(this);
                 cadastrarVeiculoClick.Show();
             }
-            
-            private void btn_ConsultaFilmeClick(object sender, EventArgs e)
+
+            private void btn_ConsultaVeiculoClick(object sender, EventArgs e)
             {
-                // ConsultaFilme consultarFilmeClick = new ConsultaFilme(this);
-                // consultarFilmeClick.Show();
+                ConsultaVeiculo consultarVeiculoClick = new ConsultaVeiculo(this);
+                consultarVeiculoClick.Show();
             }
-            
-            private void btn_ListaFilmesClick(object sender, EventArgs e)
+
+            private void btn_ListaVeiculosClick(object sender, EventArgs e)
             {
-                // ListaFilme listaFilmeClick = new ListaFilme(this);
-                // listaFilmeClick.Show();
+                ListaVeiculo listaVeiculoClick = new ListaVeiculo(this);
+                listaVeiculoClick.Show();
             }
-            
+
             private void btn_CadastroLocacaoClick(object sender, EventArgs e)
             {
-                // CadastroLocacao cadastrarLocacaoClick = new CadastroLocacao(this);
-                // cadastrarLocacaoClick.Show();
+                CadastroLocacao cadastrarLocacaoClick = new CadastroLocacao(this);
+                cadastrarLocacaoClick.Show();
             }
-            
+
             private void btn_ConsultaLocacaoClick(object sender, EventArgs e)
             {
-                // ConsultaLocacao consultarLocacaoClick = new ConsultaLocacao(this);
-                // consultarLocacaoClick.Show();
+                ConsultaLocacao consultarLocacaoClick = new ConsultaLocacao(this);
+                consultarLocacaoClick.Show();
             }
-            
+
             private void btn_ListaLocacoesClick(object sender, EventArgs e)
             {
-                // ListaLocacao listaLocacaoClick = new ListaLocacao(this);
-                // listaLocacaoClick.Show();
+                ListaLocacao listaLocacaoClick = new ListaLocacao(this);
+                listaLocacaoClick.Show();
             }
-            
+
             private void btn_MenuSairClick(object sender, EventArgs e)
             {
                 this.Close();
@@ -173,4 +172,4 @@ namespace View
 
         }
     }
-}   
+}

@@ -5411,11 +5411,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Ricardo\\Desktop\\Locadora-de-Veiculos\\Veiculo.csproj",
+      "projectUniqueName": "C:\\Users\\Ricardo\\Desktop\\backup\\Locadora-de-Veiculos\\Veiculo.csproj",
       "projectName": "Veiculo",
-      "projectPath": "C:\\Users\\Ricardo\\Desktop\\Locadora-de-Veiculos\\Veiculo.csproj",
+      "projectPath": "C:\\Users\\Ricardo\\Desktop\\backup\\Locadora-de-Veiculos\\Veiculo.csproj",
       "packagesPath": "C:\\Users\\Ricardo\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Ricardo\\Desktop\\Locadora-de-Veiculos\\obj\\",
+      "outputPath": "C:\\Users\\Ricardo\\Desktop\\backup\\Locadora-de-Veiculos\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Ricardo\\AppData\\Roaming\\NuGet\\NuGet.Config",

@@ -10,7 +10,7 @@ namespace Locadora_Veiculos_Ltda
         Library.Label lbl_DataNasc;
         Library.Label lbl_CPF;
         Library.Label lbl_DiasDevol;
-        Library.RichTextBox rtxt_NomeCliente;        
+        Library.RichTextBox rtxt_NomeCliente;
         Library.MaskedTextBox mtxt_DataNasc;
         Library.MaskedTextBox mtxt_CpfCLiente;
         ComboBox cb_DiasDevol;
@@ -75,7 +75,7 @@ namespace Locadora_Veiculos_Ltda
             this.cb_DiasDevol.Size = new Size(170, 20);
             this.Controls.Add(cb_DiasDevol);
 
-           
+
             this.btn_Confirmar = new Library.Button();
             this.btn_Confirmar.Text = "CONFIRMAR";
             this.btn_Confirmar.Location = new Point(10, 190);

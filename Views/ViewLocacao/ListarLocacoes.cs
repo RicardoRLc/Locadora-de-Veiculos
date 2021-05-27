@@ -3,9 +3,9 @@ using System.Windows.Forms;
 
 namespace Locadora_Veiculos_Ltda
 {
-    public partial class ListaVeiculo : Form
+    public partial class ListaLocacao : Form
     {
-        public ListaVeiculo(Form parent)
+        public ListaLocacao(Form parent)
         {
             InitializeComponent(parent);
         }
