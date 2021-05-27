@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "OC2O6hQF2H57gcaUjrSFz+IZjFiyh8EJXROhwmO5O8BH1OFRjznheeb5uHdWb/sY+w+38cZSaXSn2dmEWwV8xQ==",
+  "dgSpecHash": "jZ7nwMUVs2qnknfcIFVyF/BSDNLHU94BTvnBPYp8imUMrhKQ3Sbur/qj+54uIJm7zVleGHfd53xB3pv8jHxuBQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\Ricardo\\Desktop\\Locadora-de-Veiculos\\Veiculo.csproj",
+  "projectFilePath": "C:\\Users\\Ricardo\\Desktop\\backup\\Locadora-de-Veiculos\\Veiculo.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Ricardo\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.0\\microsoft.bcl.asyncinterfaces.1.1.0.nupkg.sha512",
     "C:\\Users\\Ricardo\\.nuget\\packages\\microsoft.bcl.hashcode\\1.1.0\\microsoft.bcl.hashcode.1.1.0.nupkg.sha512",

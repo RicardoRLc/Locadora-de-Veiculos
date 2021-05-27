@@ -20,7 +20,7 @@ namespace Locadora_Veiculos_Ltda
             this.Font = new Font(this.Font, FontStyle.Bold);
             this.Size = new Size(500, 380);
             this.parent = parent;
-            
+
             this.lv_ListaClientes = new Library.ListView();
             this.lv_ListaClientes.Location = new Point(20, 20);
             this.lv_ListaClientes.Size = new Size(440, 250);
@@ -42,9 +42,9 @@ namespace Locadora_Veiculos_Ltda
             this.lv_ListaClientes.Columns.Add("CPF", -2, HorizontalAlignment.Center);
             this.lv_ListaClientes.Columns.Add("Dias Devolução", -2, HorizontalAlignment.Center);
             this.Controls.Add(lv_ListaClientes);
-            
+
             this.btn_ListaSair = new Library.Button();
-            this.btn_ListaSair.Location = new Point(160, 280);
+            this.btn_ListaSair.Location = new Point(170, 280);
             this.btn_ListaSair.Text = "SAIR";
             this.btn_ListaSair.Click += new EventHandler(btn_ListaSairClick);
             this.Controls.Add(btn_ListaSair);

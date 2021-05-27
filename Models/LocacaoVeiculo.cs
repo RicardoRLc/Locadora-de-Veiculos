@@ -1,23 +1,21 @@
-using System.Linq;
 using System.Collections.Generic;
+using System.Linq;
+using DbRepository;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using DbRepository;
 
 namespace Models
 {
     public class LocacaoVeiculoModels
     {
-        [Key]
-        public int Id { set; get; }
-
-        [ForeignKey("locacoes")]
-        public int IdLocacao { set; get; }
-        public virtual LocacaoModels Locacao {set; get;}
-        [ForeignKey("veiculos")]
-        public int IdVeiculo { set; get; }
-        public virtual VeiculoModels Veiculo {set; get;}
-
+        [Key] // Data Annotations - Main key
+        public int Id { get; set; }
+        [ForeignKey("locacoes")] // Data Annotations - Foreign Key
+        public int IdLocacao { get; set; }
+        public virtual LocacaoModels Locacao { get; set; }
+        [ForeignKey("veiculos")] // Data Annotations - Foreign Key
+        public int IdVeiculo { get; set; }
+        public virtual VeiculoModels Veiculo { get; set; }
         public static List<LocacaoVeiculoModels> GetLocacoesByVeiculo(int IdVeiculo)
         {
             var db = new Context();
@@ -25,5 +23,6 @@ namespace Models
                     where locacao.IdVeiculo == IdVeiculo
                     select locacao).ToList();
         }
+
     }
 }

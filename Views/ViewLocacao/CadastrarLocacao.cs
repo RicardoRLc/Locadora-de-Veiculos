@@ -1,98 +1,98 @@
-// using System;
-// using Models;
-// using Controllers;
-// using System.Windows.Forms;
+using System;
+using Models;
+using Controllers;
+using System.Linq;
+using System.Windows.Forms;
+using System.Collections.Generic;
 
-// namespace Locadora_Veiculos_Ltda
-// {
-//     public partial class CadastroLocacao : Form
-//     {
-//         LocacaoModels cliente;
-//         public CadastroCliente(Form parent, int id = 0)
-//         {
-//             try
-//             {
-//                 cliente = ClienteController.GetCliente(id);
-//             }
-//             catch
-//             {
+namespace Locadora_Veiculos_Ltda
+{
+    public partial class CadastroLocacao : Form
+    {
+        public CadastroLocacao(Form parent)
+        {
+            InitializeComponent(parent);
+        }
 
-//             }
-//             InitializeComponent(parent, id > 0);
-//         }
+        public void RefreshForm()
+        {
+            if (this.InvokeRequired)
+            {
+                this.Invoke(new MethodInvoker(this.RefreshForm));
+            }
+            Application.DoEvents();
+        }
 
-//         private void btn_ConfirmarClick(object sender, EventArgs e)
-//         {
-//             try
-//             {
-//                 if ((rtxt_NomeCliente.Text != string.Empty)
-//                 && (mtxt_DataNasc.Text != string.Empty)
-//                 && (mtxt_CpfCLiente.Text != string.Empty)
-//                 && (cb_DiasDevol.Text != string.Empty))
-//                 {
-//                     if (cliente == null)
-//                     {
-//                         ClienteController.CadastrarCliente(
-//                         rtxt_NomeCliente.Text,
-//                         mtxt_DataNasc.Text,
-//                         mtxt_CpfCLiente.Text,
-//                         cb_DiasDevol.Text == "1 Dia"
-//                             ? 1
-//                             : cb_DiasDevol.Text == "2 Dias"
-//                                 ? 2
-//                                 : cb_DiasDevol.Text == "3 Dias"
-//                                     ? 3
-//                                     : cb_DiasDevol.Text == "4 Dias"
-//                                         ? 4
-//                                         : 7
-//                         );
-//                         MessageBox.Show("Cadastrado Com Sucesso!");
+        private void keypressed1(Object o, KeyPressEventArgs e)
+        {
+            lv_ListaClientes.Items.Clear();
+            List<ClienteModels> listaCliente = (from cliente in ClienteController.GetClientes() where cliente.NomeCliente.Contains(rtxt_BuscaCliente.Text, StringComparison.OrdinalIgnoreCase) select cliente).ToList();
+            ListViewItem clientes = new ListViewItem();
+            foreach (ClienteModels cliente in listaCliente)
+            {
+                ListViewItem lv_ListaCliente = new ListViewItem(cliente.IdCliente.ToString());
+                lv_ListaCliente.SubItems.Add(cliente.NomeCliente);
+                lv_ListaCliente.SubItems.Add(cliente.DataNascimento);
+                lv_ListaCliente.SubItems.Add(cliente.CpfCliente);
+                lv_ListaCliente.SubItems.Add(cliente.DiasDevolucao.ToString());
+                lv_ListaClientes.Items.Add(lv_ListaCliente);
+            }
+            this.Refresh();
+            Application.DoEvents();
+        }
 
-//                     }
-//                     else
-//                     {
-//                         ClienteController.AtualizaCliente(
-//                         cliente.IdCliente,
-//                         rtxt_NomeCliente.Text,
-//                          mtxt_DataNasc.Text,
-//                         mtxt_CpfCLiente.Text,
-//                         cb_DiasDevol.Text == "1 Dia"
-//                             ? 1
-//                             : cb_DiasDevol.Text == "2 Dias"
-//                                 ? 2
-//                                 : cb_DiasDevol.Text == "3 Dias"
-//                                     ? 3
-//                                     : cb_DiasDevol.Text == "4 Dias"
-//                                         ? 4
-//                                         : 7
-//                         );
-//                         MessageBox.Show("Alteração Feita!");
-//                     }
-//                     this.Close();
-//                     this.parent.Show();
-//                 }
-//                 else
-//                 {
-//                     MessageBox.Show("Preencha Todos Os Campos!");
-//                 }
-//             }
-//             catch (Exception er)
-//             {
-//                 MessageBox.Show(er.Message, "Preencha Todos Os Campos!");
-//             }
-//         }
+        private void keypressed2(Object o, KeyPressEventArgs e)
+        {
+            lv_ListaVeiculos.Items.Clear();
+            List<VeiculoModels> listaVeiculo = (from veiculo in VeiculoController.GetVeiculos() where veiculo.Marca.Contains(rtxt_BuscaVeiculo.Text, StringComparison.OrdinalIgnoreCase) select veiculo).ToList();
+            ListViewItem veiculos = new ListViewItem();
+            foreach (VeiculoModels veiculo in listaVeiculo)
+            {
+                ListViewItem lv_ListaVeiculo = new ListViewItem(veiculo.IdVeiculo.ToString());
+                lv_ListaVeiculo.SubItems.Add(veiculo.Marca);
+                lv_ListaVeiculo.SubItems.Add(veiculo.Modelo);
+                lv_ListaVeiculo.SubItems.Add(veiculo.Ano);
+                lv_ListaVeiculo.SubItems.Add(veiculo.ValorLocacaoVeiculo.ToString());
+                lv_ListaVeiculo.SubItems.Add(veiculo.EstoqueVeiculo.ToString());
+                lv_ListaVeiculos.Items.Add(lv_ListaVeiculo);
+            }
+            this.Refresh();
+            Application.DoEvents();
+        }
 
-//         private void btn_CancelarClick(object sender, EventArgs e)
-//         {
-//             this.Close();
-//         }
+        private void btn_ConfirmarClick(object sender, EventArgs e)
+        {
+            try
+            {
+                if ((lv_ListaClientes.SelectedItems.Count > 0) && (lv_ListaVeiculos.CheckedItems.Count > 0))
+                {
+                    string IdCliente = this.lv_ListaClientes.SelectedItems[0].Text;
+                    ClienteModels cliente = ClienteController.GetCliente(Int32.Parse(IdCliente));
+                    LocacaoModels locacao = LocacaoController.Add(cliente);
 
-//         private void LoadForm(object sender, EventArgs e)
-//         {
-//             this.rtxt_NomeCliente.Text = cliente.NomeCliente;
-//             this.mtxt_DataNasc.Text = cliente.DataNascimento;
-//             this.mtxt_CpfCLiente.Text = cliente.CpfCliente;
-//             this.cb_DiasDevol.SelectedValue = cliente.DiasDevolucao;
-//         }
-//     }
-// }
+                    foreach (ListViewItem Veiculo in this.lv_ListaVeiculos.CheckedItems)
+                    {
+                        VeiculoModels veiculo = VeiculoController.GetVeiculo(Int32.Parse(Veiculo.Text));
+                        locacao.AdicionarVeiculo(veiculo);
+                    }
+                    MessageBox.Show("Locação Realizada!");
+                    this.Close();
+                    this.parent.Show();
+                }
+                else
+                {
+                    MessageBox.Show("Selecione o Cliente e Pelo Menos Um Veiculo!");
+                }
+            }
+            catch (Exception er)
+            {
+                MessageBox.Show(er.Message, "Selecione o Cliente e Pelo Menos Um Veiculo!");
+            }
+        }
+
+        private void btn_CancelarClick(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+    }
+}

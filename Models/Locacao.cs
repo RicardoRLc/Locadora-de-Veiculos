@@ -8,23 +8,22 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Models
 {
-
     public class LocacaoModels
     {
-        [Key]
-        public int IdLocacao { set; get; }
-        public ClienteModels Cliente { set; get; }
-        [ForeignKey("clientes")]
-        public int IdCliente { set; get; }
-        public DateTime DataLocacao { set; get; }
+        /* 
+            Getters and Setters 
+        */
+        [Key] // Data Annotations - Main key
+        public int IdLocacao { get; set; }
+        public virtual ClienteModels Cliente { get; set; }
+        [ForeignKey("clientes")] // Data Annotations - Foreign Key
+        public int IdCliente { get; set; }
+        [Required] // Data Annotations - Mandatory data entry
+        public DateTime DataLocacao { get; set; }
 
         public List<VeiculoModels> veiculos = new List<VeiculoModels>();
 
-        public LocacaoModels(
-            ClienteModels cliente,
-            DateTime dataLocacao
-            )
-
+        public LocacaoModels(ClienteModels cliente, DateTime dataLocacao)
         {
             IdCliente = cliente.IdCliente;
             DataLocacao = dataLocacao;
@@ -53,66 +52,103 @@ namespace Models
             db.LocacaoVeiculo.Add(locacaoVeiculo);
             db.SaveChanges();
         }
-        
-        public override string ToString()
+
+        public string VeiculosLocados()
         {
             var db = new Context();
-
-            IEnumerable<int> veiculos = 
+            IEnumerable<int> veiculos =
             from veiculo in db.LocacaoVeiculo
             where veiculo.IdLocacao == IdLocacao
             select veiculo.IdVeiculo;
-            
-            ClienteModels cliente = ClienteModels.GetCliente(IdCliente);
 
-            string retorno = cliente +
-                $"\n----------------===[ DADOS LOCAÇÃO ]===----------------\n" +
-                $"-> DATA DE LOCAÇÃO: {DataLocacao.ToString("dd/MM/yyyy")}\n" +
-                $"-> DATA DE DEVOLUÇÃO: {LocacaoController.CalculoDataDevolucao(DataLocacao, cliente).ToString("dd/MM/yyyy")}\n" +
-                $"-> QTDE TOTAL DE VEICULOS: {veiculos.Count()}\n";
+            string strVeiculos = "";
 
-                double ValorTotal = 0;
-                string strVeiculos = "";
-                         
             if (veiculos.Count() > 0)
             {
-                foreach (int id in veiculos)
+                foreach (int IdVeiculo in veiculos)
                 {
-                    VeiculoModels veiculo = VeiculoModels.GetVeiculo(id);
-                    strVeiculos += veiculo;
-                    ValorTotal += veiculo.ValorLocacaoVeiculo;
+                    VeiculoModels veiculo = VeiculoController.GetVeiculo(IdVeiculo);
+                    strVeiculos += $"ID: {veiculo.IdVeiculo} >>> " +
+                                 $"Marca: {veiculo.Marca}\n";
                 }
             }
             else
             {
-               strVeiculos += "NAO HÁ VEICULOS!";
+                strVeiculos += "    NÃO HÁ VEICULOS!";
             }
-
-            retorno += $"-> PREÇO TOTAL DAS LOCAÇÕES: R$ {ValorTotal.ToString("C2")}\n" +
-            $"-------------------------------------------------------\n\n" +
-            $"===================[ FILMES LOCADOS ]==================\n";
-
-            return retorno + strVeiculos +
-
-            $"=======================================================\n";
-
+            return strVeiculos;
         }
 
-        public static List<LocacaoModels> GetLocacao()
+        public DateTime CalculoDataDevol()
         {
-           var db = new Context();
+            var db = new Context();
+            IEnumerable<int> veiculos =
+            from veiculo in db.LocacaoVeiculo
+            where veiculo.IdLocacao == IdLocacao
+            select veiculo.IdVeiculo;
+
+            ClienteModels cliente = ClienteModels.GetCliente(IdCliente);
+            return LocacaoController.CalculoDataDevolucao(DataLocacao, cliente);
+        }
+
+        public int QtdeVeiculos()
+        {
+            var db = new Context();
+            IEnumerable<int> veiculos =
+            from veiculo in db.LocacaoVeiculo
+            where veiculo.IdLocacao == IdLocacao
+            select veiculo.IdVeiculo;
+
+            ClienteModels cliente = ClienteModels.GetCliente(IdCliente);
+
+            return veiculos.Count();
+        }
+
+        public double ValorTotal()
+        {
+            double total = 0;
+            var db = new Context();
+            IEnumerable<int> veiculos =
+            from veiculo in db.LocacaoVeiculo
+            where veiculo.IdLocacao == IdLocacao
+            select veiculo.IdVeiculo;
+
+            foreach (int id in veiculos)
+            {
+                VeiculoModels veiculo = VeiculoModels.GetVeiculo(id);
+                total += veiculo.ValorLocacaoVeiculo;
+            }
+            return total;
+        }
+        public static List<LocacaoModels> GetLocacoes()
+        {
+            var db = new Context();
             return db.Locacoes.ToList();
         }
 
-       public static LocacaoModels GetLocacao(int idLocacao)
-       {
-           var db = new Context();
+        public static LocacaoModels GetLocacao(int idLocacao)
+        {
+            var db = new Context();
             return (from locacao in db.Locacoes
                     where locacao.IdLocacao == idLocacao
                     select locacao).First();
-       }
+        }
 
-       public static List<LocacaoModels> GetLocacoesByCliente(int IdCliente)
+        public static void DeleteLocacao(int idLocacao)
+        {
+            Context db = new Context();
+            try
+            {
+                LocacaoModels locacao = db.Locacoes.First(locacao => locacao.IdLocacao == idLocacao);
+                db.Remove(locacao);
+            }
+            catch
+            {
+                throw new ArgumentException();
+            }
+        }
+
+        public static List<LocacaoModels> GetLocacoesByCliente(int IdCliente)
         {
             var db = new Context();
             return (from locacao in db.Locacoes

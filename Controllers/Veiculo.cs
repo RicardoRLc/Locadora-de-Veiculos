@@ -52,14 +52,14 @@ namespace Controllers
             );            
         }
 
-        // public static void DeleteVeiculo(int idVeiculo)
+        public static void DeleteVeiculo(int idVeiculo)
 
-        // {
-        //     if (LocacaoController.GetLocacoesByVeiculo(idVeiculo).Count > 0)
-        //     {
-        //         throw new Exception("Há Locações com essa Marca!");
-        //     }
-        //     VeiculoModels.DeleteVeiculo(idVeiculo);
-        // }
+        {
+            if (LocacaoController.GetLocacoesByVeiculo(idVeiculo).Count > 0)
+            {
+                throw new Exception("Há Locações com essa Marca!");
+            }
+            VeiculoModels.DeleteVeiculo(idVeiculo);
+        }
     }        
 }
