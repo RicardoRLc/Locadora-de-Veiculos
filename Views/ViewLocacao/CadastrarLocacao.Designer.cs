@@ -22,10 +22,10 @@ namespace Locadora_Veiculos_Ltda
         Library.Button btn_Confirmar;
         Library.Button btn_Cancelar;
         Form parent;
-        
+
         public void InitializeComponent(Form parent)
         {
-           this.BackColor = Color.LightGray;
+            this.BackColor = Color.DarkGray;
             this.Font = new Font(this.Font, FontStyle.Bold);
             this.Size = new Size(500, 480);
             this.parent = parent;
@@ -39,23 +39,23 @@ namespace Locadora_Veiculos_Ltda
             this.lbl_BuscaVeiculo.Text = "Busca Veiculo :";
             this.lbl_BuscaVeiculo.Location = new Point(30, 210);
             this.Controls.Add(lbl_BuscaVeiculo);
-            
+
             this.tt_BuscaCliente = new Library.ToolTip();
-            
+
             this.rtxt_BuscaCliente = new Library.RichTextBox();
             this.rtxt_BuscaCliente.Location = new Point(150, 20);
             this.Controls.Add(rtxt_BuscaCliente);
             this.tt_BuscaCliente.SetToolTip(rtxt_BuscaCliente, "Digite o nome ou selecione abaixo");
             this.rtxt_BuscaCliente.KeyPress += new KeyPressEventHandler(keypressed1);
-            
+
             this.tt_BuscaVeiculo = new Library.ToolTip();
-            
+
             this.rtxt_BuscaVeiculo = new Library.RichTextBox();
             this.rtxt_BuscaVeiculo.Location = new Point(150, 210);
             this.Controls.Add(rtxt_BuscaVeiculo);
             this.tt_BuscaVeiculo.SetToolTip(rtxt_BuscaVeiculo, "Digite a marca ou selecione abaixo");
             this.rtxt_BuscaVeiculo.KeyPress += new KeyPressEventHandler(keypressed2);
-            
+
             this.lv_ListaClientes = new Library.ListView();
             this.lv_ListaClientes.Location = new Point(40, 50);
             this.lv_ListaClientes.Size = new Size(400, 120);
@@ -77,7 +77,7 @@ namespace Locadora_Veiculos_Ltda
             this.lv_ListaClientes.Columns.Add("CPF", -2, HorizontalAlignment.Center);
             this.lv_ListaClientes.Columns.Add("Dias Devolução", -2, HorizontalAlignment.Center);
             this.Controls.Add(lv_ListaClientes);
-            
+
             this.lv_ListaVeiculos = new Library.ListView();
             this.lv_ListaVeiculos.Location = new Point(40, 240);
             this.lv_ListaVeiculos.Size = new Size(400, 120);
@@ -104,7 +104,7 @@ namespace Locadora_Veiculos_Ltda
 
             Task t = new Task(new Action(() => { RefreshForm(); }));
             t.Start();
-            
+
             this.btn_Confirmar = new Library.Button();
             this.btn_Confirmar.Text = "CONFIRMAR";
             this.btn_Confirmar.Location = new Point(80, 370);
