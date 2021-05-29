@@ -22,11 +22,11 @@ namespace Locadora_Veiculos_Ltda
         int idVeiculo;
         VeiculoModels veiculoX;
 
-        // Detailed customer window
+        
         public void InitializeComponent(Form parent, VeiculoModels veiculo)
         {
-            // Window parameters
-            this.BackColor = Color.LightGray;
+            
+             this.BackColor = Color.DarkGray;
             this.Font = new Font(this.Font, FontStyle.Bold);
             this.Size = new Size(500, 290);
             this.idVeiculo = veiculo.IdVeiculo;

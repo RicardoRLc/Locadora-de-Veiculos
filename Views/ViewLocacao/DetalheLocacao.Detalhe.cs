@@ -32,7 +32,7 @@ namespace Locadora_Veiculos_Ltda
         public void InitializeComponent(Form parent, LocacaoModels locacao)
         {
             
-            this.BackColor = Color.LightGray;
+            this.BackColor = Color.DarkGray;
             this.Font = new Font(this.Font, FontStyle.Bold);
             this.Size = new Size(600, 540);
             this.idLocacao = locacao.IdLocacao;

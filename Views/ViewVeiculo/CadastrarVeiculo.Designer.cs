@@ -24,7 +24,7 @@ namespace Locadora_Veiculos_Ltda
 
         public void InitializeComponent(Form parent, bool isUpdate)
         {
-            this.BackColor = Color.LightGray;
+            this.BackColor = Color.DarkGray;
             this.Font = new Font(this.Font, FontStyle.Bold);
             this.Size = new Size(360, 370);
             this.parent = parent;
