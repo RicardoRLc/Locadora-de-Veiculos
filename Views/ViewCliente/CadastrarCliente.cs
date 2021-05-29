@@ -2,6 +2,8 @@ using System;
 using Models;
 using Controllers;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
+
 
 namespace Locadora_Veiculos_Ltda
 {
@@ -25,7 +27,26 @@ namespace Locadora_Veiculos_Ltda
         {
             try
             {
-                if ((rtxt_NomeCliente.Text != string.Empty)
+                Regex nome = new Regex(@"^[a-zA-Z]+$");
+                Regex nascimento = new Regex(@"^(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d$");
+                Regex cpf = new Regex(@"^\d{3}\.\d{3}\.\d{3}\-\d{2}$");
+                if ((!nome.IsMatch(this.rtxt_NomeCliente.Text)))
+                {
+                    this.TextErrorNome.SetError(this.rtxt_NomeCliente, "Somente letras!");
+                }
+                else if (!nascimento.IsMatch(this.mtxt_DataNasc.Text))
+                {
+                    this.TextErrorNasc.SetError(this.mtxt_DataNasc, "Preencha corretamente a data!");
+                }
+                else if (!cpf.IsMatch(this.mtxt_CpfCLiente.Text))
+                {
+                    this.TextErrorCpf.SetError(this.mtxt_CpfCLiente, "Preencha corretamente o cpf!");
+                }
+                else if (cb_DiasDevol.SelectedItem == null)
+                {
+                    this.TextErrorDev.SetError(this.cb_DiasDevol, "Selecione os dias de devolução!");
+                }
+                else if ((rtxt_NomeCliente.Text != string.Empty)
                 && (mtxt_DataNasc.Text != string.Empty)
                 && (mtxt_CpfCLiente.Text != string.Empty)
                 && (cb_DiasDevol.Text != string.Empty))
@@ -46,6 +67,11 @@ namespace Locadora_Veiculos_Ltda
                                         ? 4
                                         : 7
                         );
+                        // Como limpar o icone do erro ao digitar corretamente???
+                        this.TextErrorNasc.SetError(this.rtxt_NomeCliente, String.Empty);
+                        this.TextErrorNasc.SetError(this.mtxt_DataNasc, String.Empty);
+                        this.TextErrorCpf.SetError(this.mtxt_CpfCLiente, String.Empty);
+                        this.TextErrorDev.SetError(this.cb_DiasDevol, String.Empty);
                         MessageBox.Show("Cadastrado Com Sucesso!");
 
                     }
