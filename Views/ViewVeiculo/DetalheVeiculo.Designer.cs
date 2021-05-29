@@ -26,7 +26,7 @@ namespace Locadora_Veiculos_Ltda
         public void InitializeComponent(Form parent, VeiculoModels veiculo)
         {
             
-            this.BackColor = Color.LightGray;
+             this.BackColor = Color.DarkGray;
             this.Font = new Font(this.Font, FontStyle.Bold);
             this.Size = new Size(500, 290);
             this.idVeiculo = veiculo.IdVeiculo;

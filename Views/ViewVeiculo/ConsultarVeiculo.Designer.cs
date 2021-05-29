@@ -18,8 +18,7 @@ namespace Locadora_Veiculos_Ltda
         Library.Button btn_ListaConsulta;
         Library.Button btn_ListaSair;
         Form parent;
-
-        // Consult registered customers 
+        
         public void InitializeComponent(Form parent)
         {
 
@@ -68,8 +67,7 @@ namespace Locadora_Veiculos_Ltda
 
             Task t = new Task(new Action(() => { RefreshForm(); }));
             t.Start();
-
-            // Buttons
+          
             this.btn_ListaConsulta = new Library.Button();
             this.btn_ListaConsulta.Location = new Point(80, 310);
             this.btn_ListaConsulta.Text = "CONSULTA";
